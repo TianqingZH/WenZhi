@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RightFilter implements Filter {
 
-
-
+	//private static String allowAccess = "/login.jsp,"
+	private ServletContext servletContext;
 	@Override
 	public void destroy() {
 		// TODO 自动生成的方法存根
@@ -35,8 +36,11 @@ public class RightFilter implements Filter {
 			
 			String memId = (String) hsRequest.getSession().getAttribute("memId");
 			String path = (String)hsRequest.getServletPath();
+			//获取配置在web.xml中的参数初值
+			String allowPage = servletContext.getInitParameter("allow_page");
+			System.out.println(allowPage);
 			System.out.println(path);
-			if ((memId ==null|| "".equals(memId))&&((!"/login.jsp".equals(path))&&(!"/register.jsp".equals(path)))) {
+			if ((memId ==null|| "".equals(memId))&&(allowPage.indexOf(path)==-1)) {
 				PrintWriter writer = hsResponse.getWriter();
 				writer.write("<script>alert('Please Login!')</script>");
 				hsResponse.setHeader("refresh", "1;url=login.jsp");
@@ -49,7 +53,8 @@ public class RightFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO 自动生成的方法存根
+		//获取初始化上下文
+		 servletContext = arg0.getServletContext();
 		
 	}
 

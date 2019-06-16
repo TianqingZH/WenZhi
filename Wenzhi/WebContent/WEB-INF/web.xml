@@ -23,6 +23,12 @@
   	<filter-name>RightFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- 配置不需要登录就可以访问的路径初值 -->
+   <context-param>
+      <param-name>allow_page</param-name>
+      <param-value>/login.jsp,/LoginServlet,/register.jsp,/RegisterServlet</param-value>
+  </context-param>
+
   <!-- Servlet映射 -->
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>

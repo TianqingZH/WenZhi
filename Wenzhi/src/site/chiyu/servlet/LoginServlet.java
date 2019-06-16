@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import site.chiyu.bean.Member;
 import site.chiyu.dao.impl.MemberDaoImpl;
@@ -48,6 +50,8 @@ public class LoginServlet extends HttpServlet {
 			//判断密码是否正确
 			if (password.equals(member.getPass())) {
 				System.out.println("正确");
+				HttpSession session = req.getSession();
+				session.setAttribute("memId", member.getMemId());
 				req.getRequestDispatcher("index.jsp").forward(req, resp);;
 			}
 			else {

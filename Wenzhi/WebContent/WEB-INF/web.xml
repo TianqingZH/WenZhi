@@ -13,6 +13,16 @@
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <!-- 权限过滤器映射 -->
+  <filter>
+  	<filter-name>RightFilter</filter-name>
+  	<filter-class>site.chiyu.servlet.RightFilter</filter-class>
+  </filter>
+  
+    <filter-mapping>
+  	<filter-name>RightFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   <!-- Servlet映射 -->
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>

@@ -4,9 +4,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>首页-问之</title>
 </head>
 <body>
-	登录成功！
+	
+	<div class="header" align="center">
+		<h2>首页</h2>	
+		
+		<form action="">
+		
+			<input type="text" name="search">
+			&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="提问">
+		
+		</form>
+	</div>
+	
+	<div class="body" align="center">
+		<div class="Card">
+			<h2 class="title">标题</h2>
+			
+			<div class="content">这是内容哈哈哈哈</div>
+		
+		</div>
+	
+	
+	</div>
+	
+	
 </body>
 </html>

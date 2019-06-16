@@ -5,37 +5,51 @@ import java.util.List;
 import site.chiyu.bean.Member;
 import site.chiyu.bean.Topic;
 import site.chiyu.dao.TopicDao;
+import site.chiyu.utils.DB;
 
+@SuppressWarnings("unused")
 public class TopicDaoImpl implements TopicDao {
 
 	@Override
 	public int add(Topic topic) {
-		// TODO 自动生成的方法存根
-		return 0;
+		int affectLine = 0;
+		String sql = "insert into topic(topId topId,ctime ctime,mtime mtime,memId memId)"
+				+ "values(?,?,?,?)";
+		affectLine = new DB().executeUpdate(sql,topic.getTopId(),topic.getCtime(),topic.getMtime(),topic.getMemId());
+		return affectLine;
+	
 	}
 
 	@Override
 	public void delete(String topId) {
-		// TODO 自动生成的方法存根
+
+		String sql = "delete from topic where topId = ?";
+		new DB().executeUpdate(sql, topId);
+	
+	}
+
+	@Override
+	public Topic getTopic(String topId) {
+		String sql ="select * from topic where topId=?";
+		Topic topic = new DB().executeQuery(Topic.class, sql, topId);
+		return topic;
 		
 	}
 
 	@Override
-	public Member getTopic(String topId) {
-		// TODO 自动生成的方法存根
-		return null;
-	}
-
-	@Override
 	public int updateTopic(Topic topic) {
-		// TODO 自动生成的方法存根
-		return 0;
+		int affectLine = 0;
+		String sql = "update topic set topId=?,"
+				+ "ctime=?,mtime=?,memId=? where topId=?";
+		affectLine = new DB().executeUpdate(sql, topic.getTopId(),topic.getCtime(),topic.getMtime(),topic.getMemId());
+		return affectLine;
 	}
 
 	@Override
 	public List<Topic> list() {
-		// TODO 自动生成的方法存根
-		return null;
+		String sql ="select * from topic ";
+		List<Topic> list = new DB().executeList(Topic.class,sql, null);
+		return list;
 	}
 
 }

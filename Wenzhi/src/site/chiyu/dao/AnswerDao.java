@@ -15,7 +15,7 @@ public interface AnswerDao {
 	
 	public void delete(String answerId);
 	
-	public Member getAnswer(String answerId);
+	public Answer getAnswer(String answerId);
 	
 	public int updateAnswer(Answer answer);
 	

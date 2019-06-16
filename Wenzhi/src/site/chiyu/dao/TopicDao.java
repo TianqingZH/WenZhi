@@ -15,7 +15,7 @@ public interface TopicDao {
 	
 	public void delete(String topId);
 	
-	public Member getTopic(String topId);
+	public Topic getTopic(String topId);
 	
 	public int updateTopic(Topic topic);
 	

@@ -1,6 +1,7 @@
 package site.chiyu.bean;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class Member {
 	/***

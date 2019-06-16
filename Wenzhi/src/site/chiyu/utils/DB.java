@@ -90,7 +90,7 @@ public class DB {
 			Map<String, Object> map = new HashMap<String, Object>();
 
 			if (rs.next()) {
-				for (int i = 0; i < resultSetMetaData.getColumnCount(); i++) {
+				for (int i = 1; i < resultSetMetaData.getColumnCount(); i++) {
 					String columnLable = resultSetMetaData.getColumnLabel(i + 1);// 获取列名的别名
 					Object columnValue = rs.getObject(i + 1);
 					map.put(columnLable, columnValue);
@@ -104,7 +104,7 @@ public class DB {
 					String fieldName = entry.getKey();
 					Object fieldValue = entry.getValue();
 					Field field = clazz.getDeclaredField(fieldName);
-					// field.setAccessible(true);
+					field.setAccessible(true);
 					field.set(bean, fieldValue);
 				}
 			}
@@ -141,7 +141,7 @@ public class DB {
 			while (rs.next()) {
 				T bean = null;
 				Map<String, Object> map = new HashMap<>();
-				for (int i = 0; i < resultSetMetaData.getColumnCount(); i++) {
+				for (int i = 1; i < resultSetMetaData.getColumnCount(); i++) {
 					String columnLable = resultSetMetaData.getColumnLabel(i + 1);// 获取列名的别名
 					Object columnValue = rs.getObject(i + 1);
 					map.put(columnLable, columnValue);

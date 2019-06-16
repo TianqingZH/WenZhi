@@ -14,6 +14,7 @@ public class Answer {
 	private Timestamp ctime;
 	private String memId;
 	private String topId;
+	
 	public String getAnswerId() {
 		return answerId;
 	}

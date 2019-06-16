@@ -7,11 +7,11 @@ public class Topic {
 	 * 话题类
 	 * 话题id,创建时间，修改时间，用户id
 	 */
-	
 	private String topId;
 	private Timestamp ctime;
 	private Timestamp mtime;
 	private String memId;
+	
 	public String getTopId() {
 		return topId;
 	}

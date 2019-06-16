@@ -15,7 +15,7 @@ public class MemberDaoImpl implements MemberDao {
 		int affectLine = 0;
 		String sql = "insert into member(memId memId,pass pass,nickname nickname,sex sex,tx tx,sig sig,mctime mctime)"
 				+ "values(?,?,?,?,?,?,?)";
-		affectLine = new DB().executeUpdate(sql, member.getMemId(),member.getPass(),
+		affectLine = new DB().executeUpdate(sql,member.getMemId(),member.getPass(),
 				member.getNickname(),member.getSex(),member.getTx(),member.getSig(),member.getMctime());
 		return affectLine;
 	}

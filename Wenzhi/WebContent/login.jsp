@@ -14,8 +14,11 @@
 			<br>
 			密码：<input type="password" name="pass">
 			<br>
-			<input type="submit" value="登录">
+			<input type="submit" value="登录">&nbsp;&nbsp;
+			
 		</form>
+		<br>
+		<a href="register.jsp">没有账号？立即注册</a>
 	
 	</div>
 </body>

@@ -30,6 +30,7 @@
   </context-param>
 
   <!-- Servlet映射 -->
+  <!-- 登录 -->
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<servlet-class>site.chiyu.servlet.LoginServlet</servlet-class>
@@ -40,5 +41,15 @@
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <!-- 注册 -->
+    <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.RegisterServlet</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+  
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

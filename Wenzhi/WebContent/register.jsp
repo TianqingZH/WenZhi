@@ -9,7 +9,16 @@
 <body>
 	<div align="center">
 	
-		<h1>欢迎注册！</h1>
+		<h1>欢迎注册！</h1><br>
+		<form action="RegisterServlet" method="post">
+			账号：<input type="text" name = "memId">
+			<br>
+			昵称:<input type="text" name="nickname">
+			<br>
+			密码：<input type="password" name="pass">
+			<br>
+			<input type="submit" value="注册">		
+		</form>
 	</div>
 	
 </body>

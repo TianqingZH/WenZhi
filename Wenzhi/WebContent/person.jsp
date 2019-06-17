@@ -17,7 +17,18 @@
 	</div>
 	
 	<div class="body" align="center">
-	
+		<div >
+			动态&nbsp;&nbsp;&nbsp;
+			回答&nbsp;&nbsp;&nbsp;
+			提问&nbsp;&nbsp;&nbsp;
+		
+		</div>
+		
+		<div>
+			<p>关注了问题</p>
+			<br>
+			<h3>大学四六级有什么应试技巧？</h3>
+		</div>
 		
 	
 	

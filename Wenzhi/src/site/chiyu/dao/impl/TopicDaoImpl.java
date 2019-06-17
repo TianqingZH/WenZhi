@@ -13,9 +13,9 @@ public class TopicDaoImpl implements TopicDao {
 	@Override
 	public int add(Topic topic) {
 		int affectLine = 0;
-		String sql = "insert into topic(topId topId,ctime ctime,mtime mtime,memId memId)"
-				+ "values(?,?,?,?)";
-		affectLine = new DB().executeUpdate(sql,topic.getTopId(),topic.getCtime(),topic.getMtime(),topic.getMemId());
+		String sql = "insert into topic(topId ,topCon,ctime ,mtime ,memId )"
+				+ "values(?,?,?,?,?)";
+		affectLine = new DB().executeUpdate(sql,topic.getTopId(),topic.getTopCon(),topic.getCtime(),topic.getMtime(),topic.getMemId());
 		return affectLine;
 	
 	}
@@ -39,9 +39,9 @@ public class TopicDaoImpl implements TopicDao {
 	@Override
 	public int updateTopic(Topic topic) {
 		int affectLine = 0;
-		String sql = "update topic set topId=?,"
+		String sql = "update topic set topId=?,topCon=?"
 				+ "ctime=?,mtime=?,memId=? where topId=?";
-		affectLine = new DB().executeUpdate(sql, topic.getTopId(),topic.getCtime(),topic.getMtime(),topic.getMemId());
+		affectLine = new DB().executeUpdate(sql, topic.getTopId(),topic.getTopCon(),topic.getCtime(),topic.getMtime(),topic.getMemId());
 		return affectLine;
 	}
 

@@ -31,6 +31,8 @@
 	
 	</div>
 	
+	<a href="person.jsp">个人页</a>
+	<a href="detail.jsp">问题详情页</a>
 	
 </body>
 </html>

@@ -8,6 +8,7 @@ public class Topic {
 	 * 话题id,创建时间，修改时间，用户id
 	 */
 	private String topId;
+	private String topCon;
 	private Timestamp ctime;
 	private Timestamp mtime;
 	private String memId;
@@ -17,6 +18,13 @@ public class Topic {
 	}
 	public void setTopId(String topId) {
 		this.topId = topId;
+	}
+	
+	public String getTopCon() {
+		return topCon;
+	}
+	public void setTopCon(String topCon) {
+		this.topCon = topCon;
 	}
 	public Timestamp getCtime() {
 		return ctime;

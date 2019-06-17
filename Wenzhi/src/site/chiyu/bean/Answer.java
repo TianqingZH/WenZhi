@@ -8,6 +8,7 @@ public class Answer {
 	 * 回答标识id,赞数，评论，评论数，创建时间，用户id，主题id
 	 */
 	private String answerId;
+	private String ansCon;
 	private int zan;
 	private String com;
 	private int comCount;
@@ -20,6 +21,14 @@ public class Answer {
 	}
 	public void setAnswerId(String answerId) {
 		this.answerId = answerId;
+	}
+	
+	
+	public String getAnsCon() {
+		return ansCon;
+	}
+	public void setAnsCon(String ansCon) {
+		this.ansCon = ansCon;
 	}
 	public int getZan() {
 		return zan;

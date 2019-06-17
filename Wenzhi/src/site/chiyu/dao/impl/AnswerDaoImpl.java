@@ -18,8 +18,8 @@ public class AnswerDaoImpl implements AnswerDao {
 	@Override
 	public int add(Answer answer) {
 		int affectLine = 0;
-		String sql = "insert into answer(answerId answerId,zan zan,com com,comCount comCount,ctime ctime,memId memId,topId topId)"
-				+ "values(?,?,?,?,?,?,?)";
+		String sql = "insert into answer(answerId ,ansCon,zan ,com ,comCount ,ctime ,memId ,topId )"
+				+ "values(?,?,?,?,?,?,?,?)";
 		affectLine = new DB().executeUpdate(sql, answer.getAnswerId(),answer.getZan(),answer.getCom(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId());
 		return affectLine;
 	}
@@ -42,9 +42,9 @@ public class AnswerDaoImpl implements AnswerDao {
 	@Override
 	public int updateAnswer(Answer answer) {
 		int affectLine = 0;
-		String sql = "update answer set answerId=?,"
+		String sql = "update answer set answerId=?,ansCon=?"
 				+ "zan=?,com=?,comCount=?,ctime=?,memId=?,topId=? where answerId=?";
-		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getZan(),answer.getCom(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId() );
+		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getCom(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId() );
 		return affectLine;
 	
 	}

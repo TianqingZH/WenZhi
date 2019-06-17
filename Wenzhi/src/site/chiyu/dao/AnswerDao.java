@@ -21,5 +21,7 @@ public interface AnswerDao {
 	
 	public List<Answer> list();
 	
+	public List<Answer> listWithTopId(String topId);
 	
+	public Answer getAnswerWithTopId(String topId);
 }

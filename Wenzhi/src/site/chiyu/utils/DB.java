@@ -83,7 +83,7 @@ public class DB {
 					pst.setObject(i + 1, params[i]);
 				}
 			}
-
+			
 			rs = pst.executeQuery();
 			// ResultSetMetaData获得结果集的元数据
 			ResultSetMetaData resultSetMetaData = rs.getMetaData();
@@ -151,7 +151,7 @@ public class DB {
 							String fieldName = entry.getKey();
 							Object fieldValue = entry.getValue();
 							Field field = clazz.getDeclaredField(fieldName);
-							// field.setAccessible(true);
+							 field.setAccessible(true);
 							field.set(bean, fieldValue);
 						}
 					

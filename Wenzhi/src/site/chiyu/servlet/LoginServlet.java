@@ -52,7 +52,8 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("正确");
 				HttpSession session = req.getSession();
 				session.setAttribute("memId", member.getMemId());
-				req.getRequestDispatcher("index.jsp").forward(req, resp);;
+				//req.getRequestDispatcher("FindIndexServlet").forward(req, resp);;
+				resp.setHeader("refresh", "0;url = FindIndexServlet");
 			}
 			else {
 				System.out.println("错误");

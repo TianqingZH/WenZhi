@@ -52,4 +52,16 @@
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- FindIndexServlet -->
+    <servlet>
+  	<servlet-name>FindIndexServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.FindIndexServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>FindIndexServlet</servlet-name>
+  	<url-pattern>/FindIndexServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

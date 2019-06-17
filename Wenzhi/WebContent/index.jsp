@@ -1,3 +1,6 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Map.Entry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,7 +10,13 @@
 <title>首页-问之</title>
 </head>
 <body>
+	<% 
+		
+		Map<String,String> map= (Map<String,String>)session.getAttribute("map");
+		//Map<String,String> map= (Map<String,String>)request.getAttribute("map");
+		out.print("map:"+map);
 	
+	%>
 	<div class="header" align="center">
 		<h2>首页</h2>	
 		
@@ -18,15 +27,34 @@
 			<input type="submit" value="提问">
 		
 		</form>
+		<hr>
 	</div>
 	
 	<div class="body" align="center">
-		<div class="Card">
-			<h2 class="title">标题</h2>
-			
-			<div class="content">这是内容哈哈哈哈</div>
+	
+		<% 	
 		
-		</div>
+			if(map !=null){
+			for (Entry<String, String> entry : map.entrySet()) {		
+		%>	
+			
+			<div class="Card">
+			<h2 class="title"><%=entry.getKey() %></h2>
+			
+			<div class="content"><%=entry.getValue() %></div>
+		
+			</div>
+			<hr>
+		<%
+			}
+		}else{
+			
+			PrintWriter writer = response.getWriter();
+			writer.write("出现了一点小问题!");
+			
+		}
+		%>
+		
 	
 	
 	</div>

@@ -12,15 +12,15 @@ import site.chiyu.utils.DB;
 
 public class AnswerDaoImpl implements AnswerDao {
 
-	private Connection con = null;
+
 	
 
 	@Override
 	public int add(Answer answer) {
 		int affectLine = 0;
-		String sql = "insert into answer(answerId ,ansCon,zan ,com ,comCount ,ctime ,memId ,topId )"
-				+ "values(?,?,?,?,?,?,?,?)";
-		affectLine = new DB().executeUpdate(sql, answer.getAnswerId(),answer.getZan(),answer.getCom(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId());
+		String sql = "insert into answer(answerId ,ansCon,zan ,comCount ,ctime ,memId ,topId )"
+				+ "values(?,?,?,?,?,?,?)";
+		affectLine = new DB().executeUpdate(sql, answer.getAnswerId(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId());
 		return affectLine;
 	}
 
@@ -43,8 +43,8 @@ public class AnswerDaoImpl implements AnswerDao {
 	public int updateAnswer(Answer answer) {
 		int affectLine = 0;
 		String sql = "update answer set answerId=?,ansCon=?"
-				+ "zan=?,com=?,comCount=?,ctime=?,memId=?,topId=? where answerId=?";
-		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getCom(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId() );
+				+ "zan=?,comCount=?,ctime=?,memId=?,topId=? where answerId=?";
+		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId() );
 		return affectLine;
 	
 	}

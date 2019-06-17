@@ -5,12 +5,12 @@ import java.sql.Timestamp;
 public class Answer {
 	/***
 	 * 回答类
-	 * 回答标识id,赞数，评论，评论数，创建时间，用户id，主题id
+	 * 回答标识id,赞数，评论数，创建时间，用户id，主题id
 	 */
 	private String answerId;
 	private String ansCon;
 	private int zan;
-	private String com;
+	
 	private int comCount;
 	private Timestamp ctime;
 	private String memId;
@@ -36,12 +36,7 @@ public class Answer {
 	public void setZan(int zan) {
 		this.zan = zan;
 	}
-	public String getCom() {
-		return com;
-	}
-	public void setCom(String com) {
-		this.com = com;
-	}
+
 	public int getComCount() {
 		return comCount;
 	}

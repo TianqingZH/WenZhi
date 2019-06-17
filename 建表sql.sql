@@ -19,6 +19,7 @@ CREATE TABLE topic(
 	#id，主题id,创建时间，修改时间，用户id
 	id INT(5) NOT NULL AUTO_INCREMENT,
 	topId VARCHAR(20) NOT NULL,
+	topCon VARCHAR(50) NOT NULL,
 	ctime DATETIME NOT NULL,
 	mtime DATETIME,
 	memId VARCHAR(20) NOT NULL,
@@ -31,8 +32,8 @@ CREATE TABLE answer(
 	#id，回答id，赞数，评论，评论数，创建时间，用户id,主题id
 	id INT(20) NOT NULL AUTO_INCREMENT,
 	answerId VARCHAR(20) NOT NULL,
+	ansCon VARCHAR(50) NOT NULL,
 	zan INT(4) NOT NULL DEFAULT '0',
-	com VARCHAR(20) ,
 	comCount INT(4) NOT NULL DEFAULT '0',
 	ctime DATETIME NOT NULL,
 	memId VARCHAR(20) NOT NULL,
@@ -41,6 +42,17 @@ CREATE TABLE answer(
 	UNIQUE(answerId)
 );
 
+CREATE TABLE comm(
+	#id，评论id,评论内容，创建时间，问题id，用户id
+	id INT(20) NOT NULL AUTO_INCREMENT,
+	commId VARCHAR(20) NOT NULL,
+	commCon VARCHAR(20) NOT NULL,
+	ctime DATETIME NOT NULL,
+	answerId VARCHAR(20) NOT NULL,
+	memId VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(commId)
+);
 
 #topic表外键约束,设置非主键的外键约束需要将该字段设置为unique
 ALTER TABLE `topic`
@@ -52,3 +64,11 @@ ADD CONSTRAINT `answer1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON D
 
 ALTER TABLE `answer`
 ADD CONSTRAINT `answer2` FOREIGN KEY (`topId`) REFERENCES `topic` (`topId`)ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+#评论表外键约束
+ALTER TABLE `comm`
+ADD CONSTRAINT `comm1` FOREIGN KEY (`answerId`) REFERENCES `answer` (`answerId`)ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `comm`
+ADD CONSTRAINT `comm2` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE NO ACTION ON UPDATE NO ACTION;

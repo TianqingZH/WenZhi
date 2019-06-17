@@ -7,6 +7,20 @@
 <title>个人中心</title>
 </head>
 <body>
-
+	<div class="header" align="center">
+		<p>头像</p>
+		&nbsp;&nbsp;&nbsp;
+		<p>昵称</p>
+		&nbsp;&nbsp;&nbsp;
+		<p>个人签名</p>
+		
+	</div>
+	
+	<div class="body" align="center">
+	
+		
+	
+	
+	</div>
 </body>
 </html>

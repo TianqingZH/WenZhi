@@ -1,6 +1,7 @@
 package site.chiyu.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +39,9 @@ public class RegisterServlet extends HttpServlet {
 		System.out.println("flag："+flag);
 		if (flag!=0) {
 			System.out.println("注册成功！");
+			PrintWriter writer = resp.getWriter();
+			writer.write("<script>alert('Register Scuess')</script>");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		}
 	}
 

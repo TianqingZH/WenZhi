@@ -1,3 +1,4 @@
+<%@page import="site.chiyu.bean.Member"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Map.Entry"%>
@@ -13,18 +14,37 @@
 	#total{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;margin:0 auto;height:100%}
 	#person{float:left;margin-left:200px;height:100%}
+	.detail{color:#000000;text-decoration: none;}      /* 未访问链接*/
+	.detail:hover{color:pink}
+	
+	
 	body{
    		background:url(img/backgroud.jpg)  no-repeat center center;
    		background-size:cover;
    		background-attachment:fixed;
    		background-color:#CCCCCC;
 }
+.round_icon{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 
 </style>
 <body >
 	<% 
-		String nickName = (String)session.getAttribute("nickName");
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		String nickName = loginMember.getNickname();
+		String memId =  loginMember.getMemId();
+		String tx = loginMember.getTx();
+		
 		Map<String,String> map= (Map<String,String>)session.getAttribute("map");
+		Map<String,Member> mebMap = (Map<String,Member>)session.getAttribute("mebMap");
 		//Map<String,String> map= (Map<String,String>)request.getAttribute("map");
 		//out.print("map:"+map);
 	
@@ -51,9 +71,20 @@
 		%>	
 			
 			<div class="Card">
-			<h2 class="title"><%=entry.getKey() %></h2>
+			<h2 class="title"><a class= "detail" href="detail.jsp"><%=entry.getKey() %></a></h2>
 			
-			<div class="content"><%=entry.getValue() %></div>
+			<div class="content">
+			<a><%
+			
+			String AnsNickName="";
+			Member member = mebMap.get(entry.getValue());
+			if(member!=null){
+				AnsNickName = member.getNickname(); 
+				out.print(AnsNickName+":");
+			}
+			
+				%></a>
+			<a class="ans"><%=entry.getValue() %></a></div>
 		
 			</div>
 			<hr>
@@ -74,13 +105,13 @@
 
 	</div>
 		<div class="person" id="person">
-		<h2>头像</h2>
-		<h2><%=nickName %></h2>
+		<img src="img/tx/<%=tx %>" class="round_icon"  alt="">
+		<h2><a href="person.jsp"><%=nickName %></a></h2>
 		<h2>写提问</h2>
 	
 	</div>
-	<a href="person.jsp">个人页</a>
-	<a href="detail.jsp">问题详情页</a>
+	<!--  <a href="person.jsp">个人页</a>
+	<a href="detail.jsp">问题详情页</a>-->
 	
 </body>
 </html>

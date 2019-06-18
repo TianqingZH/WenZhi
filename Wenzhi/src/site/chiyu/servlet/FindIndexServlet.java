@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import site.chiyu.bean.Answer;
+import site.chiyu.bean.Member;
 import site.chiyu.bean.Topic;
 import site.chiyu.dao.impl.AnswerDaoImpl;
+import site.chiyu.dao.impl.MemberDaoImpl;
 import site.chiyu.dao.impl.TopicDaoImpl;
 
 public class FindIndexServlet extends HttpServlet {
@@ -32,9 +34,12 @@ public class FindIndexServlet extends HttpServlet {
 		Topic topic = null;
 		Answer answer = null;
 		AnswerDaoImpl answerDaoImpl = new AnswerDaoImpl();
+		MemberDaoImpl memberDaoImpl = new MemberDaoImpl();
 		String topCon = "";
 		String ansCon = "";
+		String memId ="";
 		Map<String, String> map = new HashMap<String, String>();
+		Map<String , Member> mebMap = new HashMap<>();
 		topList = new TopicDaoImpl().list();
 		
 		for (int i = 0; i < topList.size(); i++) {
@@ -45,15 +50,21 @@ public class FindIndexServlet extends HttpServlet {
 			ansList = answerDaoImpl.listWithTopId(topic.getTopId());
 			System.out.println("size:"+ansList.size());
 			System.out.println("ansList:"+ansList.toString());
+			//该话题下有回答
 			if (ansList.size()>0) {
 				ansCon = ansList.get(j).getAnsCon();
+				memId = ansList.get(j).getMemId();
+				mebMap.put(ansCon, memberDaoImpl.getMember(memId));
+				
 			}else {
 				ansCon = "还没有回答！";
 			}
 			map.put(topCon, ansCon);
 		
 		}
+		
 		req.getSession().setAttribute("map", map);
+		req.getSession().setAttribute("mebMap", mebMap);
 		resp.setHeader("refresh", "0;url=index.jsp");
 //		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}

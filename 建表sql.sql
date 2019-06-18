@@ -7,7 +7,7 @@ CREATE TABLE member(
 	pass  VARCHAR(20) NOT NULL,
 	nickname VARCHAR(20) NOT NULL,
 	sex VARCHAR(2) NOT NULL DEFAULT '男',
-	tx BLOB NOT NULL,
+	tx String NOT NULL,
 	sig VARCHAR(20) DEFAULT '0',
 	mctime DATETIME NOT NULL,
 	PRIMARY KEY(id),

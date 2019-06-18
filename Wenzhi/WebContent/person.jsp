@@ -13,11 +13,7 @@
 		<p>昵称</p>
 		&nbsp;&nbsp;&nbsp;
 		<p>个人签名</p>
-		<form aciton="pedit.jsp" method="post">
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="submit" value="编辑个人资料">
-		</form>
-		<button href="pedit.jsp">编辑个人资料</button>
+
 		<a href="pedit.jsp">编辑个人资料</a>
 	</div>
 	

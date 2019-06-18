@@ -12,7 +12,7 @@ public class Member {
 	private String pass;
 	private String nickname;
 	private String sex;
-	private byte[] tx;
+	private String tx;
 	private String sig;
 	private Timestamp mctime;
 	public String getMemId() {
@@ -39,10 +39,10 @@ public class Member {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public byte[] getTx() {
+	public String getTx() {
 		return tx;
 	}
-	public void setTx(byte[] tx) {
+	public void setTx(String tx) {
 		this.tx = tx;
 	}
 	public String getSig() {

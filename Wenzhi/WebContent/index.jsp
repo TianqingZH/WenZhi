@@ -45,8 +45,7 @@
 		
 		Map<String,String> map= (Map<String,String>)session.getAttribute("map");
 		Map<String,Member> mebMap = (Map<String,Member>)session.getAttribute("mebMap");
-		//Map<String,String> map= (Map<String,String>)request.getAttribute("map");
-		//out.print("map:"+map);
+		
 	
 	%>
 	<div class="header" align="center">
@@ -71,7 +70,7 @@
 		%>	
 			
 			<div class="Card">
-			<h2 class="title"><a class= "detail" href="detail.jsp"><%=entry.getKey() %></a></h2>
+			<h2 class="title"><a class= "detail" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a></h2>
 			
 			<div class="content">
 			<a><%

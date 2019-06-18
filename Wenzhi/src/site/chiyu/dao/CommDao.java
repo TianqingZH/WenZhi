@@ -2,7 +2,7 @@ package site.chiyu.dao;
 
 import java.util.List;
 
-
+import site.chiyu.bean.Answer;
 import site.chiyu.bean.Comm;
 /***
  * 评论用户接口层
@@ -19,4 +19,6 @@ public interface CommDao {
 	public int updateComm(Comm comm);
 	
 	public List<Comm> list();
+	
+	public List<Comm> listWithAnswerId(String answerId);
 }

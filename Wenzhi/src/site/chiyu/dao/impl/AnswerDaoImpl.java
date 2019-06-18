@@ -57,10 +57,10 @@ public class AnswerDaoImpl implements AnswerDao {
 		
 	}
 
+	
 	@Override
 	public List<Answer> listWithTopId(String topId) {
 		String sql ="select * from answer where topId=?";
-		String sqlString = "select * from answer where topId = \" " + "?" + " \" ";
 		List<Answer> list = new DB().executeList(Answer.class,sql, topId);
 		return list;
 	}

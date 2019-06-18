@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			if (password.equals(member.getPass())) {
 				System.out.println("正确");
 				HttpSession session = req.getSession();
-//				session.setAttribute("memId", member.getMemId());
+				session.setAttribute("memId", member.getMemId());
 //				session.setAttribute("nickName", member.getNickname());
 				session.setAttribute("loginMember", member);
 				//req.getRequestDispatcher("FindIndexServlet").forward(req, resp);;

@@ -64,4 +64,17 @@
   	<servlet-name>FindIndexServlet</servlet-name>
   	<url-pattern>/FindIndexServlet</url-pattern>
   </servlet-mapping>
+  
+  
+    <!-- FindDetailServlet -->
+    <servlet>
+  	<servlet-name>FindDetailServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.FindDetailServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>FindDetailServlet</servlet-name>
+  	<url-pattern>/FindDetailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

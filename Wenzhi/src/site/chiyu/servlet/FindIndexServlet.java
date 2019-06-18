@@ -43,22 +43,30 @@ public class FindIndexServlet extends HttpServlet {
 		topList = new TopicDaoImpl().list();
 		
 		for (int i = 0; i < topList.size(); i++) {
+			//只取第一条回答
 			int j = 0;
 			topic = topList.get(i);
-			topCon = topic.getTopCon();
+			//将topId放入其中，方便详情页使用
+			topCon = topic.getTopCon()+"|"+topic.getTopId();
+			
 			System.out.println("topId"+topic.getTopId());
+			System.out.println("topCon:"+topCon);
 			ansList = answerDaoImpl.listWithTopId(topic.getTopId());
 			System.out.println("size:"+ansList.size());
 			System.out.println("ansList:"+ansList.toString());
 			//该话题下有回答
 			if (ansList.size()>0) {
 				ansCon = ansList.get(j).getAnsCon();
+				//得到回答该问题的用户Id
 				memId = ansList.get(j).getMemId();
+				
+				//将对应的回答答案与该回答的用户放入map中
 				mebMap.put(ansCon, memberDaoImpl.getMember(memId));
 				
 			}else {
 				ansCon = "还没有回答！";
 			}
+			//将主题与主题下对应的第一个回答放入map中
 			map.put(topCon, ansCon);
 		
 		}

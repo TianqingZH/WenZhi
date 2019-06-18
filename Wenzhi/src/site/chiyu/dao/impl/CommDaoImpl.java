@@ -2,7 +2,7 @@ package site.chiyu.dao.impl;
 
 import java.util.List;
 
-
+import site.chiyu.bean.Answer;
 import site.chiyu.bean.Comm;
 import site.chiyu.dao.CommDao;
 import site.chiyu.utils.DB;
@@ -47,6 +47,13 @@ public class CommDaoImpl implements CommDao {
 	public List<Comm> list() {
 		String sql ="select * from comm ";
 		List<Comm> list = new DB().executeList(Comm.class,sql,null);
+		return list;
+	}
+
+	@Override
+	public List<Comm> listWithAnswerId(String answerId) {
+		String sql ="select * from comm where answerId=?";
+		List<Comm> list = new DB().executeList(Comm.class,sql, answerId);
 		return list;
 	}
 

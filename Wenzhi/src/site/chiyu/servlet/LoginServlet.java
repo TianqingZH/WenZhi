@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("正确");
 				HttpSession session = req.getSession();
 				session.setAttribute("memId", member.getMemId());
+				session.setAttribute("nickName", member.getNickname());
 				//req.getRequestDispatcher("FindIndexServlet").forward(req, resp);;
 				resp.setHeader("refresh", "0;url = FindIndexServlet");
 			}

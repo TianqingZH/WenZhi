@@ -7,7 +7,7 @@ CREATE TABLE member(
 	pass  VARCHAR(20) NOT NULL,
 	nickname VARCHAR(20) NOT NULL,
 	sex VARCHAR(2) NOT NULL DEFAULT '男',
-	tx String NOT NULL,
+	tx STRING NOT NULL,
 	sig VARCHAR(20) DEFAULT '0',
 	mctime DATETIME NOT NULL,
 	PRIMARY KEY(id),
@@ -53,7 +53,18 @@ CREATE TABLE comm(
 	PRIMARY KEY(id),
 	UNIQUE(commId)
 );
-
+CREATE TABLE dyna(
+	#用户动态表，
+	#id，动态id，用户id，创建时间，answerId,flag，0:赞同了回答，1:评论了回答,3:回答了主题
+	id INT(20) NOT NULL AUTO_INCREMENT,
+	dynaId VARCHAR(20) NOT NULL,
+	memId VARCHAR(20) NOT NULL,
+	ctime DATETIME NOT NULL,
+	otherId VARCHAR(20) NOT NULL,
+	flag VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(dynaId)
+);
 #topic表外键约束,设置非主键的外键约束需要将该字段设置为unique
 ALTER TABLE `topic`
 ADD CONSTRAINT `topic1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -72,3 +83,8 @@ ADD CONSTRAINT `comm1` FOREIGN KEY (`answerId`) REFERENCES `answer` (`answerId`)
 
 ALTER TABLE `comm`
 ADD CONSTRAINT `comm2` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+#动态表外键约束
+
+ALTER TABLE `dyna`
+ADD CONSTRAINT `dyna1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE NO ACTION ON UPDATE NO ACTION;

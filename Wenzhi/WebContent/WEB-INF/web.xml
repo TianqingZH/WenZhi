@@ -77,4 +77,16 @@
   	<servlet-name>FindDetailServlet</servlet-name>
   	<url-pattern>/FindDetailServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- FindPersonServlet -->
+  <servlet>
+  	<servlet-name>FindPersonServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.FindPersonServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>FindPersonServlet</servlet-name>
+  	<url-pattern>/FindPersonServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

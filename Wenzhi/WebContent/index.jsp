@@ -16,7 +16,8 @@
 	#person{float:left;margin-left:200px;height:100%}
 	.detail{color:#000000;text-decoration: none;}      /* 未访问链接*/
 	.detail:hover{color:pink}
-	
+	.ansNickName{text-decoration: none;color:#000000;} 
+	.ansNickName:hover{color:pink}
 	
 	body{
    		background:url(img/backgroud.jpg)  no-repeat center center;
@@ -73,16 +74,21 @@
 			<h2 class="title"><a class= "detail" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a></h2>
 			
 			<div class="content">
-			<a><%
+			<%
 			
 			String AnsNickName="";
 			Member member = mebMap.get(entry.getValue());
 			if(member!=null){
 				AnsNickName = member.getNickname(); 
-				out.print(AnsNickName+":");
+				//out.print(AnsNickName+":");
+				%>
+			<a class="ansNickName" href="FindPersonServlet?CurrentmemId=<%=member.getMemId()%>"><%=AnsNickName %>:</a>
+			<% 
 			}
 			
-				%></a>
+			%>
+				
+			
 			<a class="ans"><%=entry.getValue() %></a></div>
 		
 			</div>
@@ -105,7 +111,7 @@
 	</div>
 		<div class="person" id="person">
 		<img src="img/tx/<%=tx %>" class="round_icon"  alt="">
-		<h2><a href="person.jsp"><%=nickName %></a></h2>
+		<h2><a href="FindPersonServlet?CurrentmemId=<%=loginMember.getMemId()%>"><%=nickName %></a></h2>
 		<h2>写提问</h2>
 	
 	</div>

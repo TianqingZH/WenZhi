@@ -84,7 +84,7 @@
 				<img  src="img/tx/<%=member.getTx() %>" class="round_icon_Ans"  alt="">
 			</div>
 			<div class="memberInfo">
-			<b><%=member.getNickname() %></b>
+			<b><a href="FindPersonServlet?CurrentmemId=<%=member.getMemId()%>"><%=member.getNickname() %></a></b>
 			<br>
 			<a style="font-size:13px"><%=member.getSig() %></a>
 			</div>
@@ -123,7 +123,7 @@
 							<img src="img/tx/<%=commMember.getTx() %>" class="round_icon_Comm"  alt="">
 							</div>
 							<div class="comPersonInfo" align="left">
-							<a ><%=commMember.getNickname() %></a>
+							<a href="FindPersonServlet?CurrentmemId=<%=commMember.getMemId()%>"><%=commMember.getNickname() %></a>
 							</div>
 						
 						</div>

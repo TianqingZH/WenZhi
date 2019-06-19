@@ -10,6 +10,8 @@
 <html>
 <style>
 
+.content{width:400px;margin:0 auto;height:100%}
+#body{float:left;width:400px;height:100%}
 .round_icon_Person{
   width: 150px;
   height: 150px;
@@ -19,11 +21,31 @@
   justify-content: center;
   overflow: hidden;
 }
+.round_icon_Agree{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  float:left;
+}
+.agreeAnswer{float:left;width:90px;left:0;height:100%;color:#000000;margin-top:13px;}
+.zantong{float:left;width:90px;left:0;height:100%;color:#000000}
+.newTopic{float:left;margin-top:10px;margin-left:0;height:100%;width:400px;}
+.answerTopic{float:left;width:90px;left:0;height:100%;color:#000000;margin-top:13px;}
+.topicAnswer{}
+.person1{float:left;witdth:200px;margin-right:200px;height:100%}
+.memberInfo{float:left;width:110px;margin-left:0;height:100%}
+.person1tx{float:left;width:35px;height:100%}
+.huida{float:left;width:400px;margin-left:0;height:100%}
+.time{float:left;width:400px;margin-left:0;height:100%;margin-top:10px;font-size:11px}
 body{
-   		background:url(img/backgroud.jpg)  no-repeat center center;
+   		
    		background-size:cover;
    		background-attachment:fixed;
-   		background-color:#CCCCCC;
+   		background-color:(3,22,52);
 }
 
 
@@ -58,17 +80,21 @@ body{
 		<a href="pedit.jsp">编辑个人资料</a>
 		<%} %>
 	</div>
-	
-	<div class="body" align="center">
+	<hr>
+	<div class="content" align="center">
 		
 		<%
 			if(dynaObjects.size()>0){
-				for(int i = 0;i<dynaObjects.size();i++){
-					String clazzString = (String)dynaObjects.get(dynaObjects.size()-1-i);
+				int i ;
+				for(i = 0;i<dynaObjects.size();i++){
+					
+					String clazzString = (String)dynaObjects.get(dynaObjects.size()-2-i);
+					
+					
 					//赞同或评论回答
 					if(clazzString.equals("Answer|0")||clazzString.equals("Answer|1")){
 						String flag = clazzString.split("\\|")[1];
-						Answer answer = (Answer)dynaObjects.get(dynaObjects.size()-i);
+						Answer answer = (Answer)dynaObjects.get(dynaObjects.size()-i-1);
 						Member agreeMember = new MemberDaoImpl().getMember(answer.getMemId());
 						Topic nowTopic = new TopicDaoImpl().getTopic(answer.getTopId());
 						%>
@@ -86,12 +112,15 @@ body{
 						</div>
 						
 						<%} %>
-						<div class="nowTopic">
+					
+						<br>
+						<div class="nowTopic" align="left">
 						
-							<h2><a href="FindDetailServlet?topId=<%=nowTopic.getTopId()%>"><%=nowTopic.getTopCon() %></a></h2>
+							<h3><a href="FindDetailServlet?topId=<%=nowTopic.getTopId()%>"><%=nowTopic.getTopCon() %></a></h3>
 						</div>	
+						
 						<div class="person1"> 
-							<div class="tx">
+							<div class="person1tx">
 								<img  src="img/tx/<%=agreeMember.getTx() %>" class="round_icon_Agree"  alt="">
 							</div>
 							<div class="memberInfo">
@@ -119,15 +148,20 @@ body{
 					//回答主题
 					else{
 
-						Topic nowTopic = (Topic)dynaObjects.get(dynaObjects.size()-i);
+						Topic nowTopic = (Topic)dynaObjects.get(dynaObjects.size()-i-1);
 						%>
-						<div class="answerTopic">
+						<div class="topicAnswer" >
+							<div class="answerTopic">
 							<a>回答了主题</a>
-							<h2><a href="FindDetailServlet?topId=<%=nowTopic.getTopId()%>"><%=nowTopic.getTopCon() %></a></h2>
-						
+							<br>
+							</div>
+							<br>
+							<div class="nowTopic" align="left">
+							<h3><a href="FindDetailServlet?topId=<%=nowTopic.getTopId()%>"><%=nowTopic.getTopCon() %></a></h3>
+							</div>
 						</div>
 						
-						
+						<hr>
 						<%
 						
 					}
@@ -135,8 +169,14 @@ body{
 					
 					
 					
-					
+				i++;	
 				}
+			}else{
+				
+				%>
+				<h3>暂时没有动态！</h3>
+				<%
+				
 			}
 		
 		%>

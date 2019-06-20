@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
 		member.setMemId(memId);
 		member.setPass(pass);
 		member.setNickname(nickname);
+		member.setTx("default.jpg");
 		member.setMctime(new Timestamp(new Date().getTime()));
 		//member.setSex("男");
 		//member.setSig("贺嘉琦要乐观啊");

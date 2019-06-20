@@ -56,7 +56,7 @@
 		
 			<input type="text" name="search">
 			&nbsp;&nbsp;&nbsp;
-			<input type="submit" value="提问">
+			<input type="submit" value="搜索">
 		
 		</form>
 		<hr>

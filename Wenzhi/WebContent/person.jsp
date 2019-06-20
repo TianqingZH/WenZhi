@@ -42,7 +42,7 @@
 .huida{float:left;width:400px;margin-left:0;height:100%}
 .time{float:left;width:400px;margin-left:0;height:100%;margin-top:10px;font-size:11px}
 body{
-   		
+   		background:url(img/backgroud.jpg)  no-repeat center center;
    		background-size:cover;
    		background-attachment:fixed;
    		background-color:(3,22,52);

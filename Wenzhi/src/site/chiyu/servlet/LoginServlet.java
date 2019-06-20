@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 			else {
 				System.out.println("错误");
 				printWriter.write("<script>alert('error Password!')</script>");
-				resp.setHeader("refresh", "3;url=login.jsp");
+				resp.setHeader("refresh", "0;url=login.jsp");
 			}
 			
 		}else {

@@ -6,7 +6,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+    
+    function show(){
+       // window.location.href = "../jsp/TestFile.jsp?id="+id+"&&sname="+sname+"&&cname="+cname;
+    	document.getElementById("write").style.display = "block";
+    }
+</script>
 <style>
+	#wanswer{width:200px;}
+	#write{display:none}
 	.content{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;height:100%}
 	.person{float:left;witdth:200px;margin-right:200px;height:100%}
@@ -65,9 +74,13 @@
 	%>
 	<div class="header" align="center">
 		<div class="topic"><h2><%=topic.getTopCon() %></h2></div>
-		<div class="write">
-			<form action="" method="post">
-				<input type="submit" value="写回答">
+		<button  onclick="show()"> 写回答</button>
+		<div id="write">
+			
+			<form action="EditAnsServlet?topId=<%=topic.getTopId() %>" method="post">
+			
+				回答：<input id="wanswer"type="text"  name="wanswer" >
+				<input type="submit" value="提交回答">
 			</form>
 		</div>
 	</div>

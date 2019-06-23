@@ -89,4 +89,29 @@
   	<servlet-name>FindPersonServlet</servlet-name>
   	<url-pattern>/FindPersonServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- EditTopicServlet -->
+  
+  <servlet>
+  	<servlet-name>EditTopicServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.EditTopicServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>EditTopicServlet</servlet-name>
+  	<url-pattern>/EditTopicServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- EditAnsServlet -->
+  <servlet>
+  	<servlet-name>EditAnsServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.EditAnsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>EditAnsServlet</servlet-name>
+  	<url-pattern>/EditAnsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

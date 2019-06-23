@@ -10,15 +10,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页-问之</title>
 </head>
+<script type="text/javascript">
+    
+    function show(){
+       // window.location.href = "../jsp/TestFile.jsp?id="+id+"&&sname="+sname+"&&cname="+cname;
+    	document.getElementById("xtw").style.display = "block";
+    }
+</script>
 <style>
+	
+	#xtw{display:none;float:right;padding-right:200px;}
+	#xtwtext{cursor:pointer;color:pink}
+	#deTopic{width:200px;height:100px;backgroud:pink;}
 	#total{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;margin:0 auto;height:100%}
-	#person{float:left;margin-left:200px;height:100%}
+	#person{float:left;margin-left:200px;height:100%; }
 	.detail{color:#000000;text-decoration: none;}      /* 未访问链接*/
 	.detail:hover{color:pink}
 	.ansNickName{text-decoration: none;color:#000000;} 
 	.ansNickName:hover{color:pink}
-	
+	.floatText{z-index:99999999}
 	body{
    		background:url(img/backgroud.jpg)  no-repeat center center;
    		background-size:cover;
@@ -108,15 +119,29 @@
 	</div>
 	
 
-	</div>
+	</div >
 		<div class="person" id="person">
 		<img src="img/tx/<%=tx %>" class="round_icon"  alt="">
 		<h2><a href="FindPersonServlet?CurrentmemId=<%=loginMember.getMemId()%>"><%=nickName %></a></h2>
-		<h2>写提问</h2>
+		<h2><a id ="xtwtext"onclick="show()">写提问</a></h2>
+	
+	</div>
+	
+		
+	<div >
+	
 	
 	</div>
 	<!--  <a href="person.jsp">个人页</a>
 	<a href="detail.jsp">问题详情页</a>-->
+	<br>
+	<div id="xtw" >
+		<form action="EditTopicServlet" method="post">
+		提问：<input id="deTopic"type="text" onchange="show()" name="editTopic">
+		<br>
+		<input type="submit" value="发布问题">
+		</form>
+	</div>
 	
 </body>
 </html>

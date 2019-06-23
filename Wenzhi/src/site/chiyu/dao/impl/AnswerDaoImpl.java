@@ -20,7 +20,7 @@ public class AnswerDaoImpl implements AnswerDao {
 		int affectLine = 0;
 		String sql = "insert into answer(answerId ,ansCon,zan ,comCount ,ctime ,memId ,topId )"
 				+ "values(?,?,?,?,?,?,?)";
-		affectLine = new DB().executeUpdate(sql, answer.getAnswerId(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId());
+		affectLine = new DB().executeUpdate(sql, answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId());
 		return affectLine;
 	}
 

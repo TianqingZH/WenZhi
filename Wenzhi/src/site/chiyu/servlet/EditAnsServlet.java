@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import jdk.internal.dynalink.beans.StaticClass;
 import site.chiyu.bean.Answer;
 import site.chiyu.bean.Member;
 import site.chiyu.dao.impl.AnswerDaoImpl;
@@ -25,11 +26,14 @@ public class EditAnsServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//int count = 0;
+		
 		HttpSession session = req.getSession();
 		Answer answer = new Answer();
 		AnswerDaoImpl answerDaoImpl = new AnswerDaoImpl();
 		String wanswer = req.getParameter("wanswer");
 		String topId = req.getParameter("topId");
+		
 		Member member = (Member) session.getAttribute("loginMember");
 		PrintWriter writer = resp.getWriter();
 		int len = answerDaoImpl.list().size();
@@ -41,9 +45,10 @@ public class EditAnsServlet extends HttpServlet {
 		answer.setMemId(member.getMemId());
 		answer.setZan(0);
 		int size = answerDaoImpl.add(answer);
+		System.out.println("Size:"+size);
 		if (size>0) {
 			
-			writer.write("<script>alert('success!'</script>");
+			writer.write("<script>alert('success!')</script>");
 			
 		}else {
 			writer.write("<script>alert('failed!'</script>");
@@ -51,7 +56,7 @@ public class EditAnsServlet extends HttpServlet {
 		}
 		
 		
-		resp.setHeader("refresh", "3;url =FindDetailServlet?topId="+topId);
+		resp.setHeader("refresh", "0;url =FindDetailServlet?topId="+topId);
 		}
 	
 

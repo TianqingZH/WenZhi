@@ -30,6 +30,17 @@ public class DynaDaoImpl implements DynaDao {
 		Dyna dyna = new DB().executeQuery(Dyna.class, sql, dynaId);
 		return dyna;
 	}
+	
+	
+	//根据三个值同时查询动态表中是否已经被赞同或评论过
+	@Override
+	public Dyna getDynaBymemIdandotherIdandflag(String memId, String otherId, String flag) {
+		String sql = "select *  from dyna where memId = ? and otherId= ? and flag = ?";
+		System.out.println("现在将要执行sql语句了！");
+		Dyna dyna = new DB().executeQuery(Dyna.class, sql, memId, otherId, flag);
+		//System.out.println("在查询这查到的："+dynaId);
+		return dyna;
+	}
 
 	@Override
 	public int updateDyna(Dyna dyna) {

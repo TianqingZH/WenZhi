@@ -18,10 +18,10 @@
     }
 </script>
 <style>
-	
-	#xtw{display:none;float:right;padding-right:200px;}
+	#sub{background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
+	#xtw{display:none;float:right;padding-right:100px;}
 	#xtwtext{cursor:pointer;color:pink}
-	#deTopic{width:200px;height:100px;backgroud:pink;}
+	#deTopic{width:249px;height:50px;backgroud:pink;background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
 	#total{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;margin:0 auto;height:100%}
 	#person{float:left;margin-left:200px;height:100%; }
@@ -82,7 +82,7 @@
 		%>	
 			
 			<div class="Card">
-			<h2 class="title"><a class= "detail" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a></h2>
+			<h2 class="title"><a class= "detail" target="_Blank" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a></h2>
 			
 			<div class="content">
 			<%
@@ -93,7 +93,7 @@
 				AnsNickName = member.getNickname(); 
 				//out.print(AnsNickName+":");
 				%>
-			<a class="ansNickName" href="FindPersonServlet?CurrentmemId=<%=member.getMemId()%>"><%=AnsNickName %>:</a>
+			<a class="ansNickName" target="_Blank" href="FindPersonServlet?CurrentmemId=<%=member.getMemId()%>"  ><%=AnsNickName %>:</a>
 			<% 
 			}
 			
@@ -139,7 +139,7 @@
 		<form action="EditTopicServlet" method="post">
 		提问：<input id="deTopic"type="text" onchange="show()" name="editTopic">
 		<br>
-		<input type="submit" value="发布问题">
+		<p align="center"><input id="sub"type="submit" value="发布问题" ></p>
 		</form>
 	</div>
 	

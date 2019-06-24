@@ -42,9 +42,9 @@ public class AnswerDaoImpl implements AnswerDao {
 	@Override
 	public int updateAnswer(Answer answer) {
 		int affectLine = 0;
-		String sql = "update answer set answerId=?,ansCon=?"
+		String sql = "update answer set answerId=?,ansCon=?,"
 				+ "zan=?,comCount=?,ctime=?,memId=?,topId=? where answerId=?";
-		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId() );
+		affectLine = new DB().executeUpdate(sql,answer.getAnswerId(),answer.getAnsCon(),answer.getZan(),answer.getComCount(),answer.getCtime(),answer.getMemId(),answer.getTopId(),answer.getAnswerId() );
 		return affectLine;
 	
 	}

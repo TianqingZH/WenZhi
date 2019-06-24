@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3951105455705223945L;
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,6 +54,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("memId", member.getMemId());
 //				session.setAttribute("nickName", member.getNickname());
 				session.setAttribute("loginMember", member);
+				
 				//req.getRequestDispatcher("FindIndexServlet").forward(req, resp);;
 				resp.setHeader("refresh", "0;url = FindIndexServlet");
 			}

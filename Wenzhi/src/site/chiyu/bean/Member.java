@@ -1,9 +1,9 @@
 package site.chiyu.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Arrays;
 
-public class Member {
+public class Member implements Serializable{
 	/***
 	 * 用户实体类
 	 * 用户标识id,密码，昵称，性别，头像，签名，创建时间

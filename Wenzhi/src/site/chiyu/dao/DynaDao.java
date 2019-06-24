@@ -17,6 +17,8 @@ public interface DynaDao {
 	
 	public Dyna getDyna(String dynaId);
 	
+	public Dyna getDynaBymemIdandotherIdandflag(String memId,String otherId,String flag);
+	
 	public int updateDyna(Dyna dyna);
 	
 	public List<Dyna> list();

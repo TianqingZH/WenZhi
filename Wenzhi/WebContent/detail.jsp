@@ -12,10 +12,19 @@
        // window.location.href = "../jsp/TestFile.jsp?id="+id+"&&sname="+sname+"&&cname="+cname;
     	document.getElementById("write").style.display = "block";
     }
+    //function writeComm(){
+    	
+   // 	document.getElementById("xpl").style.display = "block";
+    	
+   // }
 </script>
 <style>
+	#writeSpan{font-size:13px}
+	#writeyourComm{width:300px;background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
+	#zanyx{text-decoration: none;color:green}
 	#wanswer{width:200px;}
 	#write{display:none}
+	#xpl{float:left;}
 	.content{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;height:100%}
 	.person{float:left;witdth:200px;margin-right:200px;height:100%}
@@ -24,7 +33,8 @@
 	.zantong{float:left;width:90px;left:0;height:100%;color:#CCCCCC}
 	.huida{float:left;width:400px;margin-left:0;height:100%}
 	.time{float:left;width:400px;margin-left:0;height:100%;margin-top:10px;font-size:11px}
-	.totalAgree{float:left;width:90px;margin-left:0;height:100%;font-size:13px}
+	.totalAgree{float:left;width:95px;margin-left:0;height:100%;font-size:13px;cursor:pointer;color:green}
+	
 	.detail{color:#000000;text-decoration: none;}      /* 未访问链接*/
 	.detail:hover{color:pink}
 	.comPerson{float:left;witdth:200px;margin-right:200px;height:100%}
@@ -33,6 +43,7 @@
 	.comDetail{float:left;witdth:400px;margin-left:0px;height:100%}
 	.comDetailCon{float:left;width:400px;margin-left:0px;height:100%}
 	body{
+   		
    		background:url(img/backgroud.jpg)  no-repeat center center;
    		background-size:cover;
    		background-attachment:fixed;
@@ -117,10 +128,33 @@
 		</div>
 		
 		<div>
-			<span class="totalAgree"><%
-			out.print(answer.getZan()+"赞同&nbsp;&nbsp;");
+			<span class="totalAgree">
+			<!-- 当前所赞同回答的id，当前所赞同回答的回答者用户id -->
+			<span>
+			<a id= "zanyx" href="WriteCommAndZanServlet?answerId=<%=answer.getAnswerId()%>&beizanmemId=<%=member.getMemId()%>&flag=0">
+			<%
+			out.print(answer.getZan()+"赞同&nbsp;");
+			%>
+			</a>
+			</span>
+			
+			<span id="pinglun" onclick="writeComm()">
+			<%
 			out.print(answer.getComCount()+"条评论");
-			%></span>
+			%>
+			</span>
+			
+			
+			</span>
+			
+			<br>
+			<div id="xpl">
+			<form action = "WriteCommAndZanServlet?answerId=<%=answer.getAnswerId()%>&beizanmemId=<%=member.getMemId()%>&flag=1" method="post">
+			<span id="writeSpan">说点什么吧:</span><input id="writeyourComm"type="text" name="writeyourComm">
+			<br>
+				<input type="submit" value="提交">
+			</form>
+			</div>
 			<br>
 		<% 
 			//评论

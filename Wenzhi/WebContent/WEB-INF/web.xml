@@ -114,4 +114,24 @@
   	<servlet-name>EditAnsServlet</servlet-name>
   	<url-pattern>/EditAnsServlet</url-pattern>
   </servlet-mapping>
+  
+  
+	<!-- WriteCommAndZanServlet -->
+  <servlet>
+  	<servlet-name>WriteCommAndZanServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.WriteCommAndZanServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>WriteCommAndZanServlet</servlet-name>
+  	<url-pattern>/WriteCommAndZanServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 设置session生存周期 -->
+  <session-config>
+	<session-timeout>-1</session-timeout>
+</session-config>
+
+  
 </web-app>

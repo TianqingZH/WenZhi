@@ -81,6 +81,7 @@ public class DB {
 			if (params != null) {
 				for (int i = 0; i < params.length; i++) {
 					pst.setObject(i + 1, params[i]);
+					System.out.println("params[i]"+params[i]);
 				}
 			}
 			
@@ -102,6 +103,7 @@ public class DB {
 				bean = (T) clazz.newInstance();
 				for (Entry<String, Object> entry : map.entrySet()) {
 					String fieldName = entry.getKey();
+					System.out.println("当前字段！"+fieldName);
 					Object fieldValue = entry.getValue();
 					Field field = clazz.getDeclaredField(fieldName);
 					field.setAccessible(true);

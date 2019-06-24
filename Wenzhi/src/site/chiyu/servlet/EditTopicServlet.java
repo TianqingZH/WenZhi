@@ -43,10 +43,10 @@ public class EditTopicServlet extends HttpServlet {
 		int size = topicDaoImpl.add(topic);
 		if (size>0) {
 			
-			writer.write("<script>alert('success!'</script>");
+			writer.write("<script>alert('success!')</script>");
 			
 		}else {
-			writer.write("<script>alert('failed!'</script>");
+			writer.write("<script>alert('failed!')</script>");
 		
 		}
 		}

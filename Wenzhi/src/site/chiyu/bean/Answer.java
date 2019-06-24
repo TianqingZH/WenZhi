@@ -1,8 +1,9 @@
 package site.chiyu.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Answer {
+public class Answer implements Serializable{
 	/***
 	 * 回答类
 	 * 回答标识id,赞数，评论数，创建时间，用户id，主题id

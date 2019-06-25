@@ -10,6 +10,7 @@
 
 .login{align:center;margin:200px 600px 200px 600px}
 
+.banquan{align:center;margin:200px 600px 0px 600px;color:blue}
 #text{
 background: none transparent scroll repeat 0% 0%;
 border-style:none;
@@ -43,6 +44,16 @@ body{
 		<a href="register.jsp">没有账号？立即注册</a>
 	
 	</div>
-	
+	<div class="banquan">
+		<p id="btext">Copyright©2018-2019第二学期  
+			<br>
+			计算机1601班
+			<br>
+			1630090013 贺嘉琦  1630090002 李辉
+		  	<br>
+		  	版权所有
+		  </p>
+	</div >
+
 </body>
 </html>

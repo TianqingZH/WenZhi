@@ -30,6 +30,8 @@ public class PeditServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String basePath = "D:\\gitProjects\\youliao\\WenZhi\\Wenzhi\\WebContent\\img\\tx";
+        
 		HttpSession session = req.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		MemberDaoImpl memberDaoImpl = new MemberDaoImpl();
@@ -41,6 +43,7 @@ public class PeditServlet extends HttpServlet {
 		System.out.println("pass:"+pass);
 		PrintWriter writer = resp.getWriter();
 		System.out.println("basePath");
+		File txFile = new File(basePath+"\\"+loginMember.getTx());
 		int flag = 0;
 		
 		
@@ -91,20 +94,21 @@ public class PeditServlet extends HttpServlet {
              }
              // 信息为文件格式
              else {
+            	 if (!(item.getName().equals(""))) {
                  String fileName = item.getName();
                  System.out.println(fileName);
                  int index = fileName.lastIndexOf(".");
                  fileName = fileName.substring(index + 1);
                  System.out.println(fileName);
-                 fileName = loginMember.getMemId()+"."+fileName;
+                 fileName = loginMember.getMemId()+(System.currentTimeMillis() / 1000)+"."+fileName;
                  System.out.println(fileName);
                  
  
-                 String basePath = "D:\\gitProjects\\youliao\\WenZhi\\Wenzhi\\WebContent\\img\\tx";
                  System.out.println("realPath:"+System.getProperty("user.dir"));
                  System.out.println("basePath"+basePath);
                  //File fileTomcat = new File(session.getServletContext().getRealPath("img\\tx"));
-    
+                 txFile.delete();
+                 loginMember.setTx(fileName);
                  File file = new File(basePath, fileName);
                  try {
                      item.write(file);
@@ -115,7 +119,7 @@ public class PeditServlet extends HttpServlet {
                  }
              }
             
-             
+             }   
          }
          flag =  memberDaoImpl.updateMember(loginMember);
          
@@ -125,7 +129,7 @@ public class PeditServlet extends HttpServlet {
 			
 		
          
-         resp.setHeader("refresh", "0;FindPersonServlet?CurrentmemId="+loginMember.getMemId());
+         resp.setHeader("refresh", "2;FindPersonServlet?CurrentmemId="+loginMember.getMemId());
       
 	}
 

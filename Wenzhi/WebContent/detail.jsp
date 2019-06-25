@@ -74,6 +74,7 @@
   justify-content: center;
   overflow: hidden;
 }
+.banquan{align:center;margin:200px 600px 0px 600px;color:blue}
 
 
 </style>
@@ -224,5 +225,14 @@
 		
 	
 	</div>
+		<p id="btext" align="center">Copyright©2018-2019第二学期  
+			<br>
+			计算机1601班
+			<br>
+			1630090013 贺嘉琦  1630090002 李辉
+		  	<br>
+		  	版权所有
+		  </p>
+	
 </body>
 </html>

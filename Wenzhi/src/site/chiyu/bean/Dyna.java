@@ -1,5 +1,6 @@
 package site.chiyu.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /***
@@ -7,7 +8,7 @@ import java.sql.Timestamp;
  * @author HOME
  *
  */
-public class Dyna {
+public class Dyna implements Serializable{
 	private String dynaId;
 	private String memId;
 	private Timestamp ctime;

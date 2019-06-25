@@ -21,10 +21,11 @@ public class CommDaoImpl implements CommDao {
 	}
 
 	@Override
-	public void delete(String commId) {
+	public int delete(String commId) {
+		int res = 0;
 		String sql = "delete from comm where commId = ?";
-		new DB().executeUpdate(sql, commId);
-		
+		res = new DB().executeUpdate(sql, commId);
+		return res;
 	}
 
 	@Override

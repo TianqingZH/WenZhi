@@ -13,7 +13,7 @@ import site.chiyu.bean.Member;
 public interface AnswerDao {
 	public int add(Answer answer);
 	
-	public void delete(String answerId);
+	public int delete(String answerId);
 	
 	public Answer getAnswer(String answerId);
 	

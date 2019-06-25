@@ -12,7 +12,7 @@ import site.chiyu.bean.Comm;
 public interface CommDao {
 	public int add(Comm comm);
 	
-	public void delete(String commId);
+	public int delete(String commId);
 	
 	public Comm getComm(String commId);
 	

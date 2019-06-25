@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import site.chiyu.bean.Dyna;
 import site.chiyu.bean.Member;
 import site.chiyu.bean.Topic;
+import site.chiyu.dao.impl.DynaDaoImpl;
 import site.chiyu.dao.impl.TopicDaoImpl;
 
 public class EditTopicServlet extends HttpServlet {
@@ -28,19 +30,28 @@ public class EditTopicServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		TopicDaoImpl topicDaoImpl = new TopicDaoImpl();
+		Dyna dyna = new Dyna();
+		DynaDaoImpl dynaDaoImpl = new DynaDaoImpl();
 		PrintWriter writer = resp.getWriter();
 		Member member = (Member) session.getAttribute("loginMember");
 		String editTopic = req.getParameter("editTopic");
 		System.out.println("editTopic:"+editTopic);
 		if(editTopic!=null){
 		Topic topic  = new Topic();
-		int len = topicDaoImpl.list().size();
-		topic.setTopId("wenti"+len);
+		//int len = topicDaoImpl.list().size();
+		topic.setTopId("w"+(Math.random()*9+1)*10);
 		topic.setMemId(member.getMemId());
 		topic.setTopCon(editTopic);
 		topic.setCtime(new Timestamp(new Date().getTime()));
 		topic.setMtime(new Timestamp(new Date().getTime()));
+		dyna.setDynaId("d"+(Math.random()*9+1)*10);
+		dyna.setCtime(new Timestamp(new Date().getTime()));
+		dyna.setMemId(member.getMemId());
+		dyna.setotherId(topic.getTopId());
+		dyna.setFlag("4");
+		
 		int size = topicDaoImpl.add(topic);
+		dynaDaoImpl.add(dyna);
 		if (size>0) {
 			
 			writer.write("<script>alert('success!')</script>");

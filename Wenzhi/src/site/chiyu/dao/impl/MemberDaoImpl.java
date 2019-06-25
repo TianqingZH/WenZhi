@@ -15,10 +15,10 @@ public class MemberDaoImpl implements MemberDao {
 		int affectLine = 0;
 //		String sql = "insert into member(memId memId,pass pass,nickname nickname,sex sex,tx tx,sig sig,mctime mctime)"
 //				+ "values(?,?,?,?,?,?,?)";
-		String sql = "insert into member( memId, pass, nickname, sex,tx , sig, mctime)"
-				+ "values(?,?,?,?,?,?,?)";
+		String sql = "insert into member( memId, pass, nickname, sex,tx , sig, mctime,isAdmin)"
+				+ "values(?,?,?,?,?,?,?,?)";
 		affectLine = new DB().executeUpdate(sql,member.getMemId(),member.getPass(),
-				member.getNickname(),member.getSex(),member.getTx(),member.getSig(),member.getMctime());
+				member.getNickname(),member.getSex(),member.getTx(),member.getSig(),member.getMctime(),member.getIsAdmin());
 		return affectLine;
 	}
 
@@ -39,9 +39,9 @@ public class MemberDaoImpl implements MemberDao {
 	public int updateMember(Member member) {
 		int affectLine = 0;
 		String sql = "update member set memId=?,"
-				+ "pass=?,nickname=?,sex=?,tx=?,sig=?,mctime=? where memId=?";
+				+ "pass=?,nickname=?,sex=?,tx=?,sig=?,mctime=?,isAdmin=? where memId=?";
 		affectLine = new DB().executeUpdate(sql, member.getMemId(),member.getPass(),
-				member.getNickname(),member.getSex(),member.getTx(),member.getSig(),member.getMctime(),member.getMemId());
+				member.getNickname(),member.getSex(),member.getTx(),member.getSig(),member.getMctime(),member.getIsAdmin(),member.getMemId());
 		return affectLine;
 	}
 

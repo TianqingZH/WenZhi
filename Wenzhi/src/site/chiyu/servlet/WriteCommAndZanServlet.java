@@ -74,6 +74,12 @@ public class WriteCommAndZanServlet extends HttpServlet {
 			comm2.setAnswerId(answerId);
 			comm2.setMemId(loginMemId);
 			commDaoImpl.add(comm2);
+			dyna.setDynaId("d"+(Math.random()*9+1)*10);
+			dyna.setCtime(new Timestamp(new Date().getTime()));
+			dyna.setFlag("1");
+			dyna.setMemId(loginMemId);
+			dyna.setotherId(answerId);
+			dynaDaoImpl.add(dyna);
 			writer.write("<script>alert('发表评论成功！')</script>");
 		}else {
 			writer.write("<script>alert('您已赞同过，请勿重复操作！')</script>");

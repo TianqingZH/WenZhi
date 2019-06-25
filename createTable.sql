@@ -1,0 +1,92 @@
+﻿CREATE DATABASE wenzhi;
+USE wenzhi;
+CREATE TABLE member(
+	#id ,用户标识id,密码，昵称，性别，头像，签名，创建时间
+	id INT(5) NOT NULL AUTO_INCREMENT,
+	memId VARCHAR(50) NOT NULL,
+	pass  VARCHAR(50) NOT NULL,
+	nickname VARCHAR(100) NOT NULL,
+	sex VARCHAR(10)  DEFAULT '男',
+	tx VARCHAR(20),
+	sig VARCHAR(100) DEFAULT '0',
+	mctime DATETIME NOT NULL,
+	isAdmin varchar(5),
+	PRIMARY KEY(id),
+	UNIQUE (memId)
+	
+);
+
+CREATE TABLE topic(
+	#id，主题id,创建时间，修改时间，用户id
+	id INT(5) NOT NULL AUTO_INCREMENT,
+	topId VARCHAR(50) NOT NULL,
+	topCon VARCHAR(200) NOT NULL,
+	ctime DATETIME NOT NULL,
+	mtime DATETIME,
+	memId VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE (topId)
+);
+
+
+CREATE TABLE answer(
+	#id，回答id，赞数，评论，评论数，创建时间，用户id,主题id
+	id INT(20) NOT NULL AUTO_INCREMENT,
+	answerId VARCHAR(50) NOT NULL,
+	ansCon VARCHAR(200) NOT NULL,
+	zan INT(4) NOT NULL DEFAULT '0',
+	comCount INT(4) NOT NULL DEFAULT '0',
+	ctime DATETIME NOT NULL,
+	memId VARCHAR(50) NOT NULL,
+	topId VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(answerId)
+);
+
+CREATE TABLE comm(
+	#id，评论id,评论内容，创建时间，问题id，用户id
+	id INT(20) NOT NULL AUTO_INCREMENT,
+	commId VARCHAR(50) NOT NULL,
+	commCon VARCHAR(200) NOT NULL,
+	ctime DATETIME NOT NULL,
+	answerId VARCHAR(50) NOT NULL,
+	memId VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(commId)
+);
+CREATE TABLE dyna(
+	#用户动态表，
+	#id，动态id，用户id，创建时间，answerId,flag，0:赞同了回答，1:评论了回答,3:回答了主题，4:发表了主题
+	id INT(20) NOT NULL AUTO_INCREMENT,
+	dynaId VARCHAR(50) NOT NULL,
+	memId VARCHAR(50) NOT NULL,
+	ctime DATETIME NOT NULL,
+	otherId VARCHAR(50) NOT NULL,
+	flag VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(dynaId)
+);
+#topic表外键约束,设置非主键的外键约束需要将该字段设置为unique
+#ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE `topic`
+ADD CONSTRAINT `topic1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+#回答表外键约束
+ALTER TABLE `answer`
+ADD CONSTRAINT `answer1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `answer`
+ADD CONSTRAINT `answer2` FOREIGN KEY (`topId`) REFERENCES `topic` (`topId`)ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+#评论表外键约束
+ALTER TABLE `comm`
+ADD CONSTRAINT `comm1` FOREIGN KEY (`answerId`) REFERENCES `answer` (`answerId`)ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `comm`
+ADD CONSTRAINT `comm2` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE CASCADE ON UPDATE CASCADE;
+
+#动态表外键约束
+
+ALTER TABLE `dyna`
+ADD CONSTRAINT `dyna1` FOREIGN KEY (`memId`) REFERENCES `member` (`memId`)ON DELETE CASCADE ON UPDATE CASCADE;

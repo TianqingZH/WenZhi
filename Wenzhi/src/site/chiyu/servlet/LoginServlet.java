@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("password:"+password);
 		MemberDaoImpl impl = new MemberDaoImpl();
 		member = impl.getMember(memId);
+		
 		PrintWriter printWriter = resp.getWriter();
 		System.out.println("member"+member);
 		//账号存在
@@ -46,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 		//System.out.println("memId"+member.getMemId());
 		System.out.println("2");
 		if (member != null) {
+			String isAdmin = member.getIsAdmin();
 			System.out.println("memId:"+member.getMemId());
 			//判断密码是否正确
 			if (password.equals(member.getPass())) {
@@ -54,20 +56,22 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("memId", member.getMemId());
 //				session.setAttribute("nickName", member.getNickname());
 				session.setAttribute("loginMember", member);
-				
+				if ("1".equals(isAdmin)) {
+					printWriter.write("<script>alert('欢迎你，管理员！')</script>");
+				}
 				//req.getRequestDispatcher("FindIndexServlet").forward(req, resp);;
 				resp.setHeader("refresh", "0;url = FindIndexServlet");
 			}
 			else {
 				System.out.println("错误");
-				printWriter.write("<script>alert('error Password!')</script>");
+				printWriter.write("<script>alert('密码输入错误，请检查后重新输入！')</script>");
 				resp.setHeader("refresh", "0;url=login.jsp");
 			}
 			
 		}else {
-			System.out.println("错我");
-			printWriter.write("<script>alert('NOT FOUND!')</script>");
-			resp.setHeader("refresh", "3;url=login.jsp");
+			
+			printWriter.write("<script>alert('输入有误或未注册，请检查后重新输入！')</script>");
+			resp.setHeader("refresh", "0;url=login.jsp");
 		}
 		
 		

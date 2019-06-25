@@ -13,7 +13,7 @@ import site.chiyu.bean.Topic;
 public interface TopicDao {
 	public int add(Topic topic);
 	
-	public void delete(String topId);
+	public int delete(String topId);
 	
 	public Topic getTopic(String topId);
 	

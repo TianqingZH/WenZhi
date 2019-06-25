@@ -92,15 +92,16 @@ body{
 					
 					
 					//赞同或评论回答
-					if(clazzString.equals("Answer|0")||clazzString.equals("Answer|1")){
+					if("Answer|0".equals(clazzString)||"Answer|1".equals(clazzString)){
 						String flag = clazzString.split("\\|")[1];
+						
 						Answer answer = (Answer)dynaObjects.get(dynaObjects.size()-i-1);
 						Member agreeMember = new MemberDaoImpl().getMember(answer.getMemId());
 						Topic nowTopic = new TopicDaoImpl().getTopic(answer.getTopId());
 						%>
 						
 						<div>
-						<% if(flag.equals("0")){ %>
+						<% if("0".equals(flag)){ %>
 						<div class="agreeAnswer">
 							<a>赞同了回答</a>
 							<br>
@@ -146,7 +147,7 @@ body{
 						<%
 					}
 					//回答主题
-					else{
+					else if("topic".equals(clazzString)){
 
 						Topic nowTopic = (Topic)dynaObjects.get(dynaObjects.size()-i-1);
 						%>
@@ -165,10 +166,28 @@ body{
 						<%
 						
 					}
+					//发布了主题，提问
+					else{
+						Topic nowTopic = (Topic)dynaObjects.get(dynaObjects.size()-i-1);
+						%>
+						
+						<div class="topicAnswer" >
+							<div class="answerTopic">
+							<a>发起了提问</a>
+							<br>
+							</div>
+							<br>
+							<div class="nowTopic" align="left">
+							<h3><a href="FindDetailServlet?topId=<%=nowTopic.getTopId()%>"><%=nowTopic.getTopCon() %></a></h3>
+							</div>
+						</div>
+						
+						<hr>
 						
 					
 					
-					
+				<%	
+					}	
 				i++;	
 				}
 			}else{

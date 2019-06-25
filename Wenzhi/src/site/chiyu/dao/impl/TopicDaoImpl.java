@@ -21,10 +21,11 @@ public class TopicDaoImpl implements TopicDao {
 	}
 
 	@Override
-	public void delete(String topId) {
-
+	public int delete(String topId) {
+		int res = 0;
 		String sql = "delete from topic where topId = ?";
-		new DB().executeUpdate(sql, topId);
+		res = new DB().executeUpdate(sql, topId);
+		return res;
 	
 	}
 

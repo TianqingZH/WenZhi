@@ -1,5 +1,6 @@
 package site.chiyu.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /****
@@ -7,7 +8,7 @@ import java.sql.Timestamp;
  * @author HOME
  *	评论ID,评论内容，创建时间，回答id，用户id
  */
-public class Comm {
+public class Comm implements Serializable{
 	private String commId;
 	private String commCon;
 	private Timestamp ctime;

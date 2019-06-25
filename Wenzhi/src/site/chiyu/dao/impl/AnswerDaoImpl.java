@@ -25,10 +25,11 @@ public class AnswerDaoImpl implements AnswerDao {
 	}
 
 	@Override
-	public void delete(String answerId) {
+	public int delete(String answerId) {
+		int res = 0;
 		String sql = "delete from answer where answerId = ?";
-		new DB().executeUpdate(sql, answerId);
-			
+		res = new DB().executeUpdate(sql, answerId);
+		return res;
 	}
 
 	@Override

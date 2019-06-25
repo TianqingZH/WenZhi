@@ -35,7 +35,12 @@ body{
 }
 
 
-
+#text{
+background: none transparent scroll repeat 0% 0%;
+border-style:none;
+border-bottom-style:solid;
+border-bottom-width:thin;
+border-bottom-color:red;}
 </style>
 <body>
 	<%
@@ -65,17 +70,17 @@ body{
 			
 			<br>
 			<div class="detail" >
-				<a style="padding-right:32px;">修改昵称:</a>
-				<input type="text" name="nickname">
+				<a style="padding-right:32px;" >修改昵称:</a>
+				<input type="text" name="nickname" id="text">
 				<br>
-				<a style="padding-right:1px;">修改个性签名:</a>
-				<input type="text" name="sig">
+				<a style="padding-right:1px;" >修改个性签名:</a>
+				<input type="text" name="sig" id="text">
 				<br>
 				<a style="padding-right:32px;">修改性别:</a>
-				<input type="text" name="sex">
+				<input type="text" name="sex" id="text">
 				<br>
 				<a style="padding-right:1px;">请输入新密码:</a>
-				<input type="text" name="pass">
+				<input type="text" name="pass" id="text">
 				<br>
 				
 			</div>

@@ -15,6 +15,7 @@ public class Member implements Serializable{
 	private String tx;
 	private String sig;
 	private Timestamp mctime;
+	private String isAdmin;
 	public String getMemId() {
 		return memId;
 	}
@@ -56,6 +57,12 @@ public class Member implements Serializable{
 	}
 	public void setMctime(Timestamp mctime) {
 		this.mctime = mctime;
+	}
+	public String getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(String isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 	

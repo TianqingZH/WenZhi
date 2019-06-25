@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
 		if (flag!=0) {
 			System.out.println("注册成功！");
 			PrintWriter writer = resp.getWriter();
-			writer.write("<script>alert('Register Scuess')</script>");
+			writer.write("<script>alert('注册注册成功，欢迎加入我们！')</script>");
 			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		}
 	}

@@ -140,6 +140,18 @@
   	<url-pattern>/PeditServlet</url-pattern>
   </servlet-mapping>
   
+  
+  <!-- DeleteServlet -->
+   <servlet>
+  	<servlet-name>DeleteServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.DeleteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>DeleteServlet</servlet-name>
+  	<url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
   <!-- 设置session生存周期 -->
   <session-config>
 	<session-timeout>-1</session-timeout>

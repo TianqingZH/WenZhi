@@ -65,4 +65,12 @@ public class DynaDaoImpl implements DynaDao {
 		return list;
 	}
 
+	@Override
+	public int deleteByOtherId(String otherId) {
+		int res = 0;
+		String sql = "delete from dyna where otherId = ?";
+		res =new DB().executeUpdate(sql, otherId);
+		return res;
+	}
+
 }

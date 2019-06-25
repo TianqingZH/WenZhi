@@ -15,6 +15,8 @@ public interface DynaDao {
 	
 	public void delete(String dynaId);
 	
+	public int deleteByOtherId(String otherId);
+	
 	public Dyna getDyna(String dynaId);
 	
 	public Dyna getDynaBymemIdandotherIdandflag(String memId,String otherId,String flag);

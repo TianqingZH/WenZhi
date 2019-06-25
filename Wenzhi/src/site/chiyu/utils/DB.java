@@ -17,7 +17,7 @@ public class DB {
 
 	// 数据库连接所需字段配置
 	private static String dirver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://127.0.0.1:3306/wenzhi?characterEncoding=UTF-8";
+	private static String url = "jdbc:mysql://127.0.0.1:3306/wenzhi1?characterEncoding=UTF-8";
 	private static String username = "root";
 	private static String password = "123456";
 

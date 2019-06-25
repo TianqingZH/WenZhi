@@ -12,13 +12,20 @@
        // window.location.href = "../jsp/TestFile.jsp?id="+id+"&&sname="+sname+"&&cname="+cname;
     	document.getElementById("write").style.display = "block";
     }
-    //function writeComm(){
-    	
-   // 	document.getElementById("xpl").style.display = "block";
-    	
-   // }
+    function del(){ 
+    	if(!confirm("尊敬的管理员，您确定要删除该回答吗？")){ 
+    	window.event.returnValue = false; 
+    } 
+    }
+    function delc(){ 
+    	if(!confirm("尊敬的管理员，您确定要删除该评论吗？")){ 
+    	window.event.returnValue = false; 
+    } 	
+    } 
 </script>
 <style>
+	#dAns{text-decoration: none;color:red;}
+	#delComm{text-decoration: none;color:blue;font-size:13px;margin-left:100px;}
 	#writeSpan{font-size:13px}
 	#writeyourComm{width:300px;background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
 	#zanyx{text-decoration: none;color:green}
@@ -77,6 +84,7 @@
 <body>
 	<%
 		Topic topic = (Topic)session.getAttribute("topic");
+		Member loginMember = (Member)session.getAttribute("loginMember"); 
 		Map<Member,Answer > mapMemAndAns = (Map<Member,Answer>)session.getAttribute("mapMemAndAns");
 		Map<Member,Comm > mapMemAndComm = (Map<Member,Comm >)session.getAttribute("mapMemAndComm");
 	
@@ -113,6 +121,14 @@
 			<a style="font-size:13px"><%=member.getSig() %></a>
 			</div>
 		</div>
+		<%
+			if("1".equals(loginMember.getIsAdmin())){
+		%>
+		<a id="dAns"  onclick="return del()" href="DeleteServlet?answerId=<%=answer.getAnswerId()%>&flag=delAns&topId=<%=topic.getTopId()%>">删除</a>
+		<% 
+			}
+		%>
+		
 		<br><br>
 		<div class="detailanswer">
 			<a class="zantong" style="font-size:13px"><%=answer.getZan() %>人赞同了回答</a>
@@ -171,7 +187,11 @@
 							</div>
 							<div class="comPersonInfo" align="left">
 							<a href="FindPersonServlet?CurrentmemId=<%=commMember.getMemId()%>"><%=commMember.getNickname() %></a>
+							
+							
+							
 							</div>
+							<a id="delComm" onclick="return delc()" href="DeleteServlet?commId=<%=comm.getCommId()%>&flag=delCom&answerId=<%=answer.getAnswerId()%>&topId=<%=topic.getTopId()%>">删除评论</a>
 						
 						</div>
 						<div class="comDetail" >

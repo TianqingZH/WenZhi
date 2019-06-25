@@ -16,6 +16,11 @@
        // window.location.href = "../jsp/TestFile.jsp?id="+id+"&&sname="+sname+"&&cname="+cname;
     	document.getElementById("xtw").style.display = "block";
     }
+    function del(){ 
+    	if(!confirm("您确定要删除该提问吗？")){ 
+    	window.event.returnValue = false; 
+    	} 
+    	} 
 </script>
 <style>
 	#sub{background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
@@ -25,7 +30,10 @@
 	#total{width:400px;margin:0 auto;height:100%}
 	#body{float:left;width:400px;margin:0 auto;height:100%}
 	#person{float:left;margin-left:200px;height:100%; }
-	.detail{color:#000000;text-decoration: none;}      /* 未访问链接*/
+	#delete{text-decoration: none;color:red;}
+	#delete:hover{color:pink}
+	.title{}
+	.detail{color:#000000;text-decoration: none;padding-top:10px;font-size:25px;font-weight:bold;}      /* 未访问链接*/
 	.detail:hover{color:pink}
 	.ansNickName{text-decoration: none;color:#000000;} 
 	.ansNickName:hover{color:pink}
@@ -36,6 +44,7 @@
    		background-attachment:fixed;
    		background-color:#CCCCCC;
 }
+
 .round_icon{
   width: 150px;
   height: 150px;
@@ -54,15 +63,15 @@
 		String nickName = loginMember.getNickname();
 		String memId =  loginMember.getMemId();
 		String tx = loginMember.getTx();
-		
+		String isAdmin = loginMember.getIsAdmin();
 		Map<String,String> map= (Map<String,String>)session.getAttribute("map");
 		Map<String,Member> mebMap = (Map<String,Member>)session.getAttribute("mebMap");
 		
 	
 	%>
 	<div class="header" align="center">
-		<h2>首页</h2>	
-		
+		<h2>首页-问之</h2>	
+		<!--  
 		<form action="">
 		
 			<input type="text" name="search">
@@ -70,6 +79,7 @@
 			<input type="submit" value="搜索">
 		
 		</form>
+		-->
 		<hr>
 	</div>
 	<div id="total" align="center">
@@ -82,8 +92,17 @@
 		%>	
 			
 			<div class="Card">
-			<h2 class="title"><a class= "detail" target="_Blank" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a></h2>
+			<a class= "detail" target="_Blank" href="FindDetailServlet?topId=<%=entry.getKey().split("\\|")[1]%>"><%=entry.getKey().split("\\|")[0] %></a>
+			<%
+				if("1".equals(isAdmin)){
+			%>
+			<div>
+			<a id="delete" onclick="return del()" href="DeleteServlet?topId=<%=entry.getKey().split("\\|")[1]%>&flag=delTopic">删除</a>
+			</div>
+			<%
+				}
 			
+			%>
 			<div class="content">
 			<%
 			
@@ -122,7 +141,7 @@
 	</div >
 		<div class="person" id="person">
 		<img src="img/tx/<%=tx %>" class="round_icon"  alt="">
-		<h2><a href="FindPersonServlet?CurrentmemId=<%=loginMember.getMemId()%>"><%=nickName %></a></h2>
+		<h2><a target="_Blank" href="FindPersonServlet?CurrentmemId=<%=loginMember.getMemId()%>"><%=nickName %></a></h2>
 		<h2><a id ="xtwtext"onclick="show()">写提问</a></h2>
 	
 	</div>

@@ -68,9 +68,15 @@ public class FindPersonServlet extends HttpServlet {
 					
 				}
 				//flag==3，回答了主题
-				else {
+				else if(dyna.getFlag().equals("3")){
 					topic = new TopicDaoImpl().getTopic(dyna.getotherId());
 					list.add("Topic");
+					list.add(topic);
+				}
+				//发表了主题
+				else {
+					topic = new TopicDaoImpl().getTopic(dyna.getotherId());
+					list.add("pubTopic");
 					list.add(topic);
 				}
 				

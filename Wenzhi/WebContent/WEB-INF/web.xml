@@ -128,6 +128,18 @@
   	<url-pattern>/WriteCommAndZanServlet</url-pattern>
   </servlet-mapping>
   
+  <!-- PeditServlet -->
+  <servlet>
+  	<servlet-name>PeditServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.PeditServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>PeditServlet</servlet-name>
+  	<url-pattern>/PeditServlet</url-pattern>
+  </servlet-mapping>
+  
   <!-- 设置session生存周期 -->
   <session-config>
 	<session-timeout>-1</session-timeout>

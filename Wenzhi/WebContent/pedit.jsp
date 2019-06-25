@@ -8,7 +8,7 @@
 <title>修改个人信息</title>
 </head>
 <style>
-
+#butt{background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
 body{
    		background:url(img/backgroud.jpg)  no-repeat center center;
    		background-size:cover;
@@ -18,15 +18,18 @@ body{
 
 .detail{
 
-	width:500px;	
+	width:300px;	
 	
 }
+.tx{padding-left:55px;padding-top:20px;}
+
 .round_icon{
   width: 150px;
   height: 150px;
   display: flex;
   border-radius: 50%;
   align-items: center;
+ 
   justify-content: center;
   overflow: hidden;
 }
@@ -50,24 +53,36 @@ body{
 	<div class="body" align="center">
 		<form action="PeditServlet" method="post" enctype="multipart/form-data">	
 			
-			<div class="tx" align="center">
+			<div class="tx" >
+			<a id="txa">
 			<img src="img/tx/<%=loginMember.getTx() %>" class="round_icon"  alt="">
-				
+			</a>	
 			<br>
-			<input type="file" value="选择头像"  name="file">
+			<a style="padding-left:100px;">
+			<input id="butt"type="file" value="选择头像"  name="file">
+			</a>
 			</div>	
 			
 			<br>
 			<div class="detail" >
-			<a><%=loginMember.getNickname() %>:<input type="text" name="nickname"></a><br>
+				<a style="padding-right:32px;">修改昵称:</a>
+				<input type="text" name="nickname">
 				<br>
-				<a><%=loginMember.getSex() %>:<input type="text" name="sex"></a>
+				<a style="padding-right:1px;">修改个性签名:</a>
+				<input type="text" name="sig">
 				<br>
-				<a><%=loginMember.getSig() %>:<input type="text" name="sig"></a>
+				<a style="padding-right:32px;">修改性别:</a>
+				<input type="text" name="sex">
 				<br>
+				<a style="padding-right:1px;">请输入新密码:</a>
+				<input type="text" name="pass">
+				<br>
+				
 			</div>
-			<input type="submit" value="保存">
-			
+			<br>
+			<a style="padding-left:85px;">
+			<input  id ="butt" type="submit" value="修改信息">
+			</a>
 		</form>
 	
 	

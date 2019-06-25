@@ -42,7 +42,7 @@ public class RightFilter implements Filter {
 			System.out.println(path);
 			if ((memId ==null|| "".equals(memId))&&(allowPage.indexOf(path)==-1)) {
 				PrintWriter writer = hsResponse.getWriter();
-				writer.write("<script>alert('Please Login!')</script>");
+				writer.write("<script>alert('请登录!')</script>");
 				hsResponse.setHeader("refresh", "1;url=login.jsp");
 				return;
 			}else {

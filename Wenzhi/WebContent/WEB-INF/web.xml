@@ -152,6 +152,18 @@
   	<servlet-name>DeleteServlet</servlet-name>
   	<url-pattern>/DeleteServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- ExitServlet -->
+   <servlet>
+  	<servlet-name>ExitServlet</servlet-name>
+  	<servlet-class>site.chiyu.servlet.ExitServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>ExitServlet</servlet-name>
+  	<url-pattern>/ExitServlet</url-pattern>
+  </servlet-mapping>
   <!-- 设置session生存周期 -->
   <session-config>
 	<session-timeout>-1</session-timeout>

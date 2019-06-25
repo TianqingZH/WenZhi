@@ -21,6 +21,11 @@
     	window.event.returnValue = false; 
     	} 
     	} 
+    function exit(){ 
+    	if(!confirm("您确定要退出问之吗？")){ 
+    	window.event.returnValue = false; 
+    	} 
+    	}
 </script>
 <style>
 	#sub{background: none transparent scroll repeat 0% 0%;border:1px soild lightskyblue; border-radius: 2%;}
@@ -144,7 +149,7 @@
 		<img src="img/tx/<%=tx %>" class="round_icon"  alt="">
 		<h2><a target="_Blank" href="FindPersonServlet?CurrentmemId=<%=loginMember.getMemId()%>"><%=nickName %></a></h2>
 		<h2><a id ="xtwtext"onclick="show()">写提问</a></h2>
-	
+		<h3><a id ="xtwtext" onclick="return exit()" href="ExitServlet">退出系统</a></h3>
 	</div>
 	
 		

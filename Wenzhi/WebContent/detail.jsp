@@ -24,6 +24,7 @@
     } 
 </script>
 <style>
+	#return{text-decoration: none;color:pink;}
 	#dAns{text-decoration: none;color:red;}
 	#delComm{text-decoration: none;color:blue;font-size:13px;margin-left:100px;}
 	#writeSpan{font-size:13px}
@@ -94,7 +95,10 @@
 	%>
 	<div class="header" align="center">
 		<div class="topic"><h2><%=topic.getTopCon() %></h2></div>
+		<a id="return"href="FindIndexServlet">返回主页</a>&nbsp;&nbsp;&nbsp;
 		<button  onclick="show()"> 写回答</button>
+		
+		
 		<div id="write">
 			
 			<form action="EditAnsServlet?topId=<%=topic.getTopId() %>" method="post">
@@ -192,8 +196,11 @@
 							
 							
 							</div>
+							<%
+								if("1".equals(loginMember.getIsAdmin())){
+							%>
 							<a id="delComm" onclick="return delc()" href="DeleteServlet?commId=<%=comm.getCommId()%>&flag=delCom&answerId=<%=answer.getAnswerId()%>&topId=<%=topic.getTopId()%>">删除评论</a>
-						
+							<%} %>
 						</div>
 						<div class="comDetail" >
 							<a class ="comDetailCon" align="left" style="font-size:13px"><%=comm.getCommCon() %></a>

@@ -26,7 +26,7 @@
   <!-- 配置不需要登录就可以访问的路径初值 -->
    <context-param>
       <param-name>allow_page</param-name>
-      <param-value>/login.jsp,/LoginServlet,/register.jsp,/RegisterServlet</param-value>
+      <param-value>/login.jsp,/LoginServlet,/register.jsp,/RegisterServlet,/img</param-value>
   </context-param>
 
   <!-- Servlet映射 -->

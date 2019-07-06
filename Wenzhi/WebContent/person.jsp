@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
-
+	#return{text-decoration: none;}
 .content{width:400px;margin:0 auto;height:100%}
 #body{float:left;width:400px;height:100%}
 .round_icon_Person{
@@ -77,6 +77,7 @@ body{
 		</div>
 		<a style="font-size:13px"><%=currentMember.getSig() %></a>
 		<br>
+		<a id="return"href="FindIndexServlet"> 返回主页 </a>&nbsp;
 		<%if (currentMember.getMemId().equals(loginmemId)){%>
 		<a href="pedit.jsp">编辑个人资料</a>
 		<%} %>
@@ -204,8 +205,8 @@ body{
 		
 	</div>
 	
-	</div>
-		<p id="btext">Copyright©2018-2019第二学期  
+	
+		<p id="btext" align="center">Copyright©2018-2019第二学期  
 			<br>
 			计算机1601班
 			<br>

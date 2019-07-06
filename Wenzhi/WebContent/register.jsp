@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>你好，欢迎来到问之</title>
+<title>你好，欢迎来到问知</title>
 </head>
 <style>
 .reg{align:center;margin:200px 600px 200px 600px}
@@ -17,8 +17,7 @@ border-bottom-width:thin;
 border-bottom-color:red;}
 #sub{background: none transparent scroll repeat 0% 0%; }
 body{
-		
-   		background:url(img/backgroud1.jpg)  no-repeat center center;
+   		background:url(img/background.jpg)  no-repeat center center;
    		background-size:cover;
    		background-attachment:fixed;
    		background-color:#CCCCCC;

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首页-问之</title>
+<title>首页-问知</title>
 </head>
 <script type="text/javascript">
     
@@ -22,7 +22,7 @@
     	} 
     	} 
     function exit(){ 
-    	if(!confirm("您确定要退出问之吗？")){ 
+    	if(!confirm("您确定要退出问知吗？")){ 
     	window.event.returnValue = false; 
     	} 
     	}
@@ -76,7 +76,7 @@
 	
 	%>
 	<div class="header" align="center">
-		<h2>首页-问之</h2>	
+		<h2>首页-问知</h2>	
 		<!--  
 		<form action="">
 		
